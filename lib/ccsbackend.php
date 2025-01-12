@@ -1,8 +1,10 @@
 <?php
+
+namespace Alexplusde\CutCopySlice; 
 /**
  * cut_copy_slice_cutncopy_backend class - basic backend functions for the plugin.
  */
-class cut_copy_slice_cutncopy_backend extends cut_copy_slice_backend
+class CcsBackend extends Ccs
 {
     /**
      * The name of the plugin.

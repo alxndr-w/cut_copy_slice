@@ -1,8 +1,11 @@
 <?php
+
+
+namespace Alexplusde\CutCopySlice;
 /**
  * cut_copy_slice_backend class - basic backend functions for the addon and its plugins.
  */
-class cut_copy_slice_backend
+class Ccs
 {
     public static function settings($key = null, $default = null)
     {
