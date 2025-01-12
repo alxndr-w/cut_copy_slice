@@ -9,7 +9,7 @@ class cut_copy_slice_cutncopy_backend extends cut_copy_slice_backend
      *
      * @var string
      */
-    protected static $plugin_name = 'cutncopy';
+    protected static $my_name = 'cut_copy_slice';
 
     /**
      * Will store the cookie once it is read.
@@ -61,7 +61,7 @@ class cut_copy_slice_cutncopy_backend extends cut_copy_slice_backend
      */
     protected static function getCookieName()
     {
-        return 'rex_' . static::$addon_name . '_' . static::$plugin_name;
+        return 'rex_' . static::$my_name;
     }
 
     /**

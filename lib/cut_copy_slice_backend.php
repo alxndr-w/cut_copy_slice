@@ -2,8 +2,42 @@
 /**
  * cut_copy_slice_backend class - basic backend functions for the addon and its plugins.
  */
-class cut_copy_slice_backend extends cut_copy_slice_abstract
+class cut_copy_slice_backend
 {
+    public static function settings($key = null, $default = null)
+    {
+        return rex_config::get('cut_copy_slice', $key, $default);
+    }
+
+    /**
+     * Selects a value of a slice from the database.
+     *
+     * @param (int)    $slice_id ID of the slice
+     * @param (string) $key      name of the value
+     * @param (mixed)  $default  if the value is not contained in the database or set to NULL return this value (default is NULL)
+     *
+     * @return (mixed) The slice's value
+     */
+    public static function getValueOfSlice($slice_id, $key, $default = null)
+    {
+        $slice_id = (int) $slice_id;
+        $value = $default;
+
+        if (!is_nan($slice_id) && $slice_id > 0) {
+            $sql = rex_sql::factory();
+            $sql->setTable(rex::getTablePrefix().'article_slice');
+            $sql->setWhere(['id' => $slice_id]);
+            $sql->select();
+
+            if ($sql->hasValue($key)) {
+                $value = $sql->getValue($key);
+            }
+
+            unset($sql);
+        }
+
+        return $value;
+    }
     /**
      * Initializes the addon in the backend.
      */
