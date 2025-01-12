@@ -1,0 +1,2 @@
+cut_copy_slice.addPlugin("status",{init:function(){$('[href*="cut_copy_slice/status/status"][href*="status="]').each(function(a,b){var c=$(b).attr("href").match(/status=(\d)/),d=$(b).parents(".rex-slice-output");d.length&&c&&(c=0===parseInt(c[1]),c?d.first().removeClass("cut_copy_slice--status--inactive"):d.first().addClass("cut_copy_slice--status--inactive")),$(b).on("click.cut_copy_slice",function(a){return $.pjax({url:$(this).attr("href"),container:"#rex-js-page-main-content",fragment:"#rex-js-page-main-content",push:!1}),!1})})}});
+//# sourceMappingURL=be.js.map
